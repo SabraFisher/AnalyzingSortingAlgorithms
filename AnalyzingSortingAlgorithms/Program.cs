@@ -1,6 +1,16 @@
 ﻿using System.Diagnostics;
+using System.Runtime;
 
-// 
+// It was interesting to see that the Quick Sort function took the longest time on the nearly sorted array and the sorted
+// large to small array. This is because the pivot selection strategy used in this implementation of Quick Sort is not optimal
+// for these types of inputs, leading to unbalanced partitions and increased recursion. In contrast, Merge Sort consistently
+// performed well across all types of input arrays due to its stable O(n log n) time complexity, regardless of the initial order of elements.
+// Insertion Sort performed efficiently on the nearly sorted array due to its adaptive nature, which allows it to take advantage of existing
+// order in the data. 
+// Real world applications often involve nearly sorted data, making Insertion Sort
+// a viable choice in such scenarios despite its O(n^2) worst-case time complexity.
+// I don't think Bubble Sort or Merge Sort is ever a good choice for large data sets, as it consistently performed poorly. I am not sure if any 
+// would be correct in all scenarios, but Quick Sort and Insertion Sort seem to be the best choices depending on the data set characteristics.
 namespace AnalyzingSortingAlgorithms
 {
     internal static class Program
