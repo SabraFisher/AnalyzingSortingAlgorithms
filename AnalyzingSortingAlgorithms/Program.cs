@@ -12,13 +12,24 @@ namespace AnalyzingSortingAlgorithms
             stopwatch.Stop();
             DisplayRuntime(stopwatch);
 
-            // Write your function to test each algorithm here
+            // Write your functions to test each algorithm here
+            stopwatch.Start();
+            Console.WriteLine("Algorithm: Bubble Sort  ");
+            SortingAlgorithms.BubbleSort(largeArr, 100000);
+            stopwatch.Stop();
+            DisplayRuntime(stopwatch);
 
+            stopwatch.Start();
+            Console.WriteLine("Algorithm: Merge Sort  ");
+            SortingAlgorithms.MergeSort(largeArr);
+            stopwatch.Stop();
+            DisplayRuntime(stopwatch);
 
-
-            // Write individual functions for each algorithm here (Bubble, Insertion, Merge, and Quick sort)
-
-
+            stopwatch.Start();
+            Console.WriteLine("Algorithm: Quick Sort    ");
+            SortingAlgorithms.QuickSort(largeArr);
+            stopwatch.Stop();
+            DisplayRuntime(stopwatch);
             // function
             static int[] GenerateRandomArray(int length, int minValue, int maxValue)
             {

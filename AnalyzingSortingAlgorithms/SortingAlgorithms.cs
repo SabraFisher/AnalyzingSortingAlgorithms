@@ -4,15 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace AnalyzingSortingAlgorithms
 {
     public class SortingAlgorithms
     {
-        public int[] BubbleSort(int[] array)
+        public static int[] BubbleSort(int[] array, int n) // Not great for large dat sets
+        //Simplest. Reapeatedly swaps the adjacent elements if they are in the wrong order.
         {
-            int n = array.Length;
+            bool swapped;
             for (int i = 0; i < n - 1; i++)
             {
+                swapped = false;
                 for (int j = 0; j < n - i - 1; j++)
                 {
                     if (array[j] > array[j + 1])
@@ -21,16 +24,21 @@ namespace AnalyzingSortingAlgorithms
                         int temp = array[j];
                         array[j] = array[j + 1];
                         array[j + 1] = temp;
+                        swapped = true;
                     }
                 }
+                //If no two elements were swapped by inner loop, then break
+                if (swapped == false)
+                    break;
             }
             return array;
         }
 
-        public int[] InsertionSort(int[] array)
+        //Move from unsorted section to correct place in sorted section. 
+        public static int[] InsertionSort(int[] array)
         {
             int n = array.Length;
-            for (int i = 1; i < n; i++)
+            for (int i = 1; i < n; ++i)
             {
                 int key = array[i];
                 int j = i - 1;
@@ -46,7 +54,7 @@ namespace AnalyzingSortingAlgorithms
             return array;
         }
 
-        public int[] SelectionSort(int[] array)
+        public static int[] SelectionSort(int[] array)
         {
             int n = array.Length;
             for (int i = 0; i < n - 1; i++)
@@ -68,7 +76,9 @@ namespace AnalyzingSortingAlgorithms
             return array;
         }
 
-        public int[] MergeSort(int[] array)
+        // Efficient divide and conquer approach. Recursively divides array into halves,
+        // recursively sorting the two halves and finally merging them into one sorted array.
+        public static int[] MergeSort(int[] array)
         {
             if (array.Length <= 1)
                 return array;
@@ -78,7 +88,7 @@ namespace AnalyzingSortingAlgorithms
             return Merge(MergeSort(left), MergeSort(right));
         }
 
-        private int[] Merge(int[] left, int[] right)
+        private static int[] Merge(int[] left, int[] right)
         {
             int[] result = new int[left.Length + right.Length];
             int i = 0, j = 0, k = 0;
@@ -104,12 +114,12 @@ namespace AnalyzingSortingAlgorithms
             return result;
         }
 
-        public int[] QuickSort(int[] array)
+        public static int[] QuickSort(int[] array)
         {
             return QuickSortHelper(array, 0, array.Length - 1);
         }   
 
-        private int[] QuickSortHelper(int[] array, int low, int high)
+        private static int[] QuickSortHelper(int[] array, int low, int high)
         {
             if (low < high)
             {
@@ -120,7 +130,7 @@ namespace AnalyzingSortingAlgorithms
             return array;
         }
 
-        private int Partition(int[] array, int low, int high)
+        private static int Partition(int[] array, int low, int high)
         {
             int pivot = array[high];
             int i = (low - 1);
@@ -142,6 +152,24 @@ namespace AnalyzingSortingAlgorithms
             return i + 1;
         }
 
+        public static int[] InsertionSort(int[] array, int n)
+        {
+            for (int i = 1; i < n; ++i)
+            {
+                int key = array[i];
+                int j = i - 1;
+
+                //  Move elements of arr[0,1,2,.., i-1], that are greater than key
+                //    to one position ahead of their current position
+                while (j >= 0 && array[j] > key)
+                {
+                    array[j + 1] = array[j];
+                    j = j - 1;
+                }
+                array[j + 1] = key;
+            }
+            return array;
+        }
 
     }
 }
