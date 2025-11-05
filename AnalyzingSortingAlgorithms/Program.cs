@@ -1,9 +1,6 @@
 ﻿using System.Diagnostics;
 
-//  Merge Sort and Quick Sort have better time complexity compared to Bubble Sort and Insertion Sort for large datasets.
-// Their performance in specific scenarios (small datasets, poor implementations, or nearly sorted data) can be less
-// favorable due to constant factors and overhead. 
-
+// 
 namespace AnalyzingSortingAlgorithms
 {
     internal static class Program
