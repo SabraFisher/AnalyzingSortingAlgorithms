@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AnalyzingSortingAlgorithms
 {
-    public class SortingAlgorithms
+    public static class SortingAlgorithms
     {
         public static int[] BubbleSort(int[] array, int n) // Not great for large dat sets
         //Simplest. Reapeatedly swaps the adjacent elements if they are in the wrong order.
@@ -30,26 +30,6 @@ namespace AnalyzingSortingAlgorithms
                 //If no two elements were swapped by inner loop, then break
                 if (swapped == false)
                     break;
-            }
-            return array;
-        }
-
-        //Move from unsorted section to correct place in sorted section. 
-        public static int[] InsertionSort(int[] array)
-        {
-            int n = array.Length;
-            for (int i = 1; i < n; ++i)
-            {
-                int key = array[i];
-                int j = i - 1;
-                // Move elements of array[0..i-1], that are greater than key,
-                // to one position ahead of their current position
-                while (j >= 0 && array[j] > key)
-                {
-                    array[j + 1] = array[j];
-                    j = j - 1;
-                }
-                array[j + 1] = key;
             }
             return array;
         }
@@ -152,6 +132,7 @@ namespace AnalyzingSortingAlgorithms
             return i + 1;
         }
 
+        //Move from unsorted section to correct place in sorted section. 
         public static int[] InsertionSort(int[] array, int n)
         {
             for (int i = 1; i < n; ++i)

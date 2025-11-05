@@ -2,7 +2,7 @@
 
 namespace AnalyzingSortingAlgorithms
 {
-    internal class Program
+    internal static class Program
     {
         static void Main(string[] args)
         {
@@ -11,25 +11,40 @@ namespace AnalyzingSortingAlgorithms
             int[] largeArr = GenerateRandomArray(100000, 1, 1000);   // usage 100 thousand values
             stopwatch.Stop();
             DisplayRuntime(stopwatch);
+            stopwatch.Reset();
 
             // Write your functions to test each algorithm here
+            stopwatch.Start();
+            Console.WriteLine("Algorithm: Quick Sort    ");
+            SortingAlgorithms.QuickSort(largeArr);
+            stopwatch.Stop();
+            DisplayRuntime(stopwatch);
+            stopwatch.Reset();  
+
             stopwatch.Start();
             Console.WriteLine("Algorithm: Bubble Sort  ");
             SortingAlgorithms.BubbleSort(largeArr, 100000);
             stopwatch.Stop();
             DisplayRuntime(stopwatch);
+            stopwatch.Reset();
 
             stopwatch.Start();
             Console.WriteLine("Algorithm: Merge Sort  ");
             SortingAlgorithms.MergeSort(largeArr);
             stopwatch.Stop();
             DisplayRuntime(stopwatch);
+            stopwatch.Reset();
+
+           
 
             stopwatch.Start();
-            Console.WriteLine("Algorithm: Quick Sort    ");
-            SortingAlgorithms.QuickSort(largeArr);
+            Console.WriteLine("Algorithm: Insertion Sort  ");
+            SortingAlgorithms.InsertionSort(largeArr, 100000);
             stopwatch.Stop();
             DisplayRuntime(stopwatch);
+            stopwatch.Reset();
+
+
             // function
             static int[] GenerateRandomArray(int length, int minValue, int maxValue)
             {
