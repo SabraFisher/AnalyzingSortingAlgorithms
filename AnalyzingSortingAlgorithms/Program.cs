@@ -1,5 +1,9 @@
 ﻿using System.Diagnostics;
 
+//  Merge Sort and Quick Sort have better time complexity compared to Bubble Sort and Insertion Sort for large datasets.
+// Their performance in specific scenarios (small datasets, poor implementations, or nearly sorted data) can be less
+// favorable due to constant factors and overhead. 
+
 namespace AnalyzingSortingAlgorithms
 {
     internal static class Program
@@ -7,40 +11,37 @@ namespace AnalyzingSortingAlgorithms
         static void Main(string[] args)
         {
             Stopwatch stopwatch = Stopwatch.StartNew();
-            stopwatch.Start();
+
+            Console.WriteLine("Generating large random array...");
+            stopwatch.Start(); 
             int[] largeArr = GenerateRandomArray(100000, 1, 1000);   // usage 100 thousand values
             stopwatch.Stop();
             DisplayRuntime(stopwatch);
-            stopwatch.Reset();
 
-            // Write your functions to test each algorithm here
-            stopwatch.Start();
+            // Write your functions to test each sorting algorithm here
+            stopwatch.Start();  ///SECOND LONGEST
             Console.WriteLine("Algorithm: Quick Sort    ");
             SortingAlgorithms.QuickSort(largeArr);
             stopwatch.Stop();
             DisplayRuntime(stopwatch);
-            stopwatch.Reset();
 
-            stopwatch.Start();
+            stopwatch.Start();  ///// TAKES THE LONGEST
             Console.WriteLine("Algorithm: Merge Sort  ");
             SortingAlgorithms.MergeSort(largeArr);
             stopwatch.Stop();
             DisplayRuntime(stopwatch);
-            stopwatch.Reset();
 
             stopwatch.Start();
             Console.WriteLine("Algorithm: Bubble Sort  ");
             SortingAlgorithms.BubbleSort(largeArr, 100000);
             stopwatch.Stop();
             DisplayRuntime(stopwatch);
-            stopwatch.Reset();
 
             stopwatch.Start();
             Console.WriteLine("Algorithm: Insertion Sort  ");
             SortingAlgorithms.InsertionSort(largeArr, 100000);
             stopwatch.Stop();
             DisplayRuntime(stopwatch);
-            stopwatch.Reset();
 
 
             // function
@@ -66,6 +67,7 @@ namespace AnalyzingSortingAlgorithms
                     ts.Hours, ts.Minutes, ts.Seconds,
                     ts.Milliseconds / 10);
                 Console.WriteLine("Time Taken: " + elapsedTime);
+                stopwatch.Reset();
             }
         }
     }
