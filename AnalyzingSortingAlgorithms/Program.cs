@@ -19,13 +19,6 @@ namespace AnalyzingSortingAlgorithms
             SortingAlgorithms.QuickSort(largeArr);
             stopwatch.Stop();
             DisplayRuntime(stopwatch);
-            stopwatch.Reset();  
-
-            stopwatch.Start();
-            Console.WriteLine("Algorithm: Bubble Sort  ");
-            SortingAlgorithms.BubbleSort(largeArr, 100000);
-            stopwatch.Stop();
-            DisplayRuntime(stopwatch);
             stopwatch.Reset();
 
             stopwatch.Start();
@@ -35,7 +28,12 @@ namespace AnalyzingSortingAlgorithms
             DisplayRuntime(stopwatch);
             stopwatch.Reset();
 
-           
+            stopwatch.Start();
+            Console.WriteLine("Algorithm: Bubble Sort  ");
+            SortingAlgorithms.BubbleSort(largeArr, 100000);
+            stopwatch.Stop();
+            DisplayRuntime(stopwatch);
+            stopwatch.Reset();
 
             stopwatch.Start();
             Console.WriteLine("Algorithm: Insertion Sort  ");
