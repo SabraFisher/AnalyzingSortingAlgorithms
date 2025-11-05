@@ -100,7 +100,7 @@ namespace AnalyzingSortingAlgorithms
             DisplayRuntime(stopwatch);
 
             // Now test on nearly sorted array large to small
-            Console.WriteLine("\nTesting on Nearly Sorted Array:\n");
+            Console.WriteLine("\nTesting on Sorted Array (Large to Small):\n");
             stopwatch.Start();
             Console.WriteLine("Algorithm: Quick Sort    ");
             SortingAlgorithms.QuickSort(largeToSmall);
